@@ -31,7 +31,15 @@
         |------------------------------------------------
         */
         if($url == 'home'){
-
+            /**
+             * Verificando se existe uma url para logout.
+             */
+            if(isset($_GET['logout'])){
+                /**
+                 * Classe Usuário e função para logout.
+                 */
+                Usuario::logout();
+            }
             /**
              * Verificando se @var $_SESSION['logado']
              * existe.
