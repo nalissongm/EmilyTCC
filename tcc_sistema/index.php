@@ -25,12 +25,12 @@
      * da @var url com final '.php' no diretório
      * raiz e no diretório 'pages/'. 
      */
-    if(file_exists($url.'.php') || file_exists('pages/'.$url.'.php')){
+    if(file_exists($url.'.php') || file_exists('pages/'.$url.'.php') || $url == 'agendamento'){
         /*-----------------------------------------------
         |   Inserindo a Home do site
         |------------------------------------------------
         */
-        if($url == 'home'){
+        if($url == 'home' || $url === 'agendamento'){
             /**
              * Verificando se existe uma url para logout.
              */
@@ -64,8 +64,6 @@
         else{
             include('pages/'.$url.'.php');
         }
-        
-        
     }else{
         /**
          * Configurar uma página para quando o

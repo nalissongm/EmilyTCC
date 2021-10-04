@@ -174,7 +174,10 @@
     |
     */
     else:
-?>
+        if($url == 'agendamento'){
+            echo "<tag tag='$url' ></tag>";
+        }
+?>  
     <h6 id="titulo" style="font-family: 'Domine', serif;">Qual procedimento deseja realizar hoje?</h6>
 
     <!--    Parte das opcoes de serviços -->
