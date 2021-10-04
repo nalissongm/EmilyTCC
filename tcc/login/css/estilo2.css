@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+}
+
+/* Título */
+
+#topo {
+/*     background-color: blue; */
+    margin-top: 6%;
+    height: 7%;
+
+}
+
+#topo2 {
+    /*     background-color: blue; */
+        margin-top: 3%;
+        height: 7%;
+    }
+
+    #topo2 h3 {
+        font-size: 70px;
+        text-align: center;
+        color: rgb(56, 56, 56);
+    }
+    
+
+#topo h3 {
+    font-size: 70px;
+    text-align: center;
+    color: rgb(56, 56, 56);
+    
+}
+
+/* texto e imagem */
+
+p {
+    font-size: 25px;
+}
+
+#coluna1 {
+    float: left;
+    width: 37%;
+  /*   background-color: red; */
+    height: 520px;
+    margin: 5% 0% auto 10%;
+}
+
+#coluna2 {
+    float: right;
+    width: 37%;
+    /* background-color: red; */
+    height: 520px;
+    margin: 5% 10% auto 2%;
+}
+
+#img1 {
+
+    width: 100%;
+    height: 300px;
+    margin-bottom: 20px;
+}
+
+#img1 img{
+   width: 100%;
+   height: 300px;
+}
+
+#img2 {
+
+    width: 100%;
+    height: 300px;
+    margin-top: 20px;
+}
+
+#img2 img{
+   width: 100%;
+   height: 300px;
+}
+
+
+/* Botãozinho */
+
+#botao {
+   /*  background-color: rgb(26, 26, 26); */
+    height: 60px;
+    width: 30%;
+    margin-top: 45%;
+    margin-left: 36%;
+}
+
+#botao input{
+    background-color: rgb(252, 122, 74);
+    color: white;
+    border-radius: 30px;
+    width: 100%;
+    height: 100%;
+    font-size:30px;
+    border: 0;
+}
+
+#botao input:hover {
+    background-color:rgb(173, 48, 2);
+    transition: 1s;
+    border-bottom: black 2px;
+    cursor: pointer;
+}
