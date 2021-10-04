@@ -9,7 +9,7 @@
             'keywords'  => 'palavras,separadas,por,virgula'
         ]);
 
-    const status_dev = 1;
+    const status_dev = 0;
     function nameDir(){
         $arrDir = explode("/",$_SERVER['PHP_SELF']);
         $arrDir = implode("/", array($arrDir[1],$arrDir[2]));
