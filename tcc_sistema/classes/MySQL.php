@@ -22,7 +22,6 @@
                                  array(PDO::MYSQL_ATTR_INIT_COMMAND=>"SET NAMES utf8"));
                     if(status_dev == 0){
                         self::$pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-                        echo "<script>alert('ola');</script>";
                     }
                 }
                 catch(Exception $e){
