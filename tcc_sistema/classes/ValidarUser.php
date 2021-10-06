@@ -35,8 +35,8 @@
                     //$_SESSION['telefone'] = $data['telefone'];
                     //$_SESSION['senha'] = $data['senha'];
 
-                    //header('Location: '.INCLUDE_PATH);
-                    //die();
+                    header('Location: '.INCLUDE_PATH);
+                    die();
                 }
                 
                 throw new Exception("LoginError: senha inválida.");

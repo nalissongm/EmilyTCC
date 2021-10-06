@@ -3,7 +3,7 @@
         try{
             $login = new ValidarUser;
             $login->setEmail($_POST['email']);
-            $login->setSenha($_POST['senha']);
+            $login->setSenha(md5($_POST['senha']));
             $login->validar();
         }
         catch(Exception $e)

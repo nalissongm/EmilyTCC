@@ -15,6 +15,7 @@
         {
             if(isset($_SESSION['logado'])){
                 unset($_SESSION['logado']);
+                session_destroy();
                 header('Location: '.INCLUDE_PATH);
                 die();
             }else{

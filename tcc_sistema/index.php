@@ -53,7 +53,6 @@
             // Incluindo a home e rodapé
             include('home.php');
             include('pages/templates/rodape.php');
-
         }
         /**
          * Inserindo arquivo com base na @var $url.
