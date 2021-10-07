@@ -19,11 +19,17 @@
                 $insert = array($this->nome,$this->email,$this->senha,$this->cpf,$this->telefone);
                 $conn = MySQL::conectar();
                 $stmt = $conn->prepare("INSERT INTO `tb_usuarios` VALUES (null,?,?,?,?,?)");
-                if($stmt->execute($insert)){
+                try{
+                    $stmt->execute($insert);
+                    unset($_POST);
                     header('Location: '.INCLUDE_PATH."login");
                     die();
+                }catch(Exception $e){
+                    return false;
                 }
             }
+            unset($_POST);
+            return;
         }
 
         /**

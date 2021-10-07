@@ -9,6 +9,7 @@
                 $cadastrar->setTelefone($_POST['telefone']);
                 $cadastrar->setSenha(md5($_POST['senha']));
                 $cadastrar->registrar();
+
             }
             catch(Exception $e){
                 $modalError = $e->getMessage();

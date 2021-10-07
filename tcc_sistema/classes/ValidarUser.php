@@ -34,11 +34,11 @@
                     //$_SESSION['cpf'] = $data['cpf'];
                     //$_SESSION['telefone'] = $data['telefone'];
                     //$_SESSION['senha'] = $data['senha'];
-
+                    unset($_POST);
                     header('Location: '.INCLUDE_PATH);
                     die();
                 }
-                
+                unset($_POST);
                 throw new Exception("LoginError: senha inválida.");
             }else{
                 throw new Exception("LoginError: email inválido.");

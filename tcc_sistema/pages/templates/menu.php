@@ -1,11 +1,11 @@
 <?php
-    // var userEmail = "nalissongm.pro@gmail.com";
-    // var assuntoE = "Assunto do email";
-    // var bodyE = "Olá! Estou entrando em contato, pois...";
+    $remetenteEmail = "seuemail@gmail.com";
+    $assuntoEmail = "Assunto automático que aparecerá no email do usuário quando clicar no link";
+    $corpoEmail = "Mensagem automática que aparecerá no email do usuário quando clicar no link";
 
-    // let ass_encode = encodeURI(assuntoE);
-    // let body_encode = encodeURI(bodyE);
-    // var link = "mailto:"+userEmail+"?Subject="+ass_encode+"&Body="+body_encode;
+    $ass_encode = urldecode($assuntoEmail);
+    $body_encode = urldecode($corpoEmail);
+    $linkE = "mailto:".$remetenteEmail."?Subject=".$assuntoEmail."&Body=".$corpoEmail;
 ?>
 <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -26,7 +26,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="<?=INCLUDE_PATH?>contato">Contato</a>
+                        <a class="nav-link" aria-current="page" href="<?=$linkE?>" target="_blank">Contato</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<?=INCLUDE_PATH?>?logout=true" tabindex="" aria-disabled="true">Sair</a>
