@@ -1,3 +1,12 @@
+<?php
+    // var userEmail = "nalissongm.pro@gmail.com";
+    // var assuntoE = "Assunto do email";
+    // var bodyE = "Olá! Estou entrando em contato, pois...";
+
+    // let ass_encode = encodeURI(assuntoE);
+    // let body_encode = encodeURI(bodyE);
+    // var link = "mailto:"+userEmail+"?Subject="+ass_encode+"&Body="+body_encode;
+?>
 <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">

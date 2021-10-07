@@ -6,4 +6,6 @@ $(window).on('load',function(){
         var menuH = $('header nav').height() + $('#titulo').height();
         $('html,body').animate({"scrollTop":divScroll-menuH},1000);
     }
+
+    
 })

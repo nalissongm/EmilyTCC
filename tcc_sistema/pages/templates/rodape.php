@@ -36,7 +36,7 @@
   </div><!-- fechamento bloco 2 -->
 </div><!-- fechamento rodape -->
 <!-------------------- scripts js -------------------->
-<?php if(isset($_SESSION['logado']) && $url == 'agendamento'):?>
+<?php if(isset($_SESSION['logado']) && $url == 'agendamento' && $url == 'cadastrar'):?>
 <script src="<?=INCLUDE_PATH?>assets/js/jquery-3.6.0.min.js"></script>
 <script src="<?=INCLUDE_PATH?>assets/js/scripts.js"></script>
 <?php endif?>
