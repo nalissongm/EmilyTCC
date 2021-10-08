@@ -29,8 +29,9 @@
                      *   utilizada na aplicação.
                      */
                     $_SESSION['logado'] = true;
+                    $_SESSION['auth'] = uniqid();
                     $_SESSION['id_usuario'] = $data['id_usuario'];
-                    //$_SESSION['email'] = $this->email;
+                    $_SESSION['email'] = $this->email;
                     //$_SESSION['cpf'] = $data['cpf'];
                     //$_SESSION['telefone'] = $data['telefone'];
                     //$_SESSION['senha'] = $data['senha'];
