@@ -12,7 +12,7 @@
 
 
 
-  <script>
+  <!--script>
     $(function() {
       $("#form-agendamento").submit(function(e) {
         //prevenindo envio do form
@@ -54,7 +54,7 @@
 
       });
     });
-  </script>
+  </script-->
 </head>
 
 <body style="background-color: rgb(255, 243, 202);">
@@ -82,9 +82,15 @@
 
           <div class="field">
             <label for="data">Hora:</label>
-            <input type="time" required name="hora" id="hora">
+            <input type="time" required name="horario" id="hora">
           </div>
-          <button class="button">Salvar</button>
+          <input type="hidden" name="procedimento" value="Cabeleireiro">
+        <?php if(isset($_SESSION['id_usuario']) && isset($_SESSION['logado']) && isset($_SESSION['auth'])):?>
+          <input type="hidden" name="<?=md5("id_user")?>" value="<?=$_SESSION['id_usuario']?>">
+          <input type="hidden" name="email" value="<?=$_SESSION['email']?>">
+          <input type="hidden" name="<?=md5("auth")?>" value="<?=$_SESSION['auth']?>">
+        <?php endif?>
+          <button class="button" name="agendamento">Salvar</button>
         </form>
 
       </div>
@@ -110,6 +116,22 @@
     </div>
 
   </div>
+  <script>
+    $('body').on('submit', 'form', function(){
+      event.preventDefault();
+      var form = $(this);
+      $.ajax({
+        url:'http://localhost/EmilyTCC/tcc_sistema/Ajax/RequestAgendamento.php',
+			  method:'post',
+			  dataType: 'json',
+			  data:form.serialize()
+      }).done(function(data){
+        console.log(data);
+      })
+      return false;
+    })
+
+  </script>
 </body>
 
 </html>
