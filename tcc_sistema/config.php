@@ -3,6 +3,8 @@
      * Iniciando a sessão do site
      */
     session_start();
+    if(isset($_SESSION['logado']))
+        $_SESSION['logado'];
     
     /*--------------------------------------------------------
     |   Configurações - Informações principais
