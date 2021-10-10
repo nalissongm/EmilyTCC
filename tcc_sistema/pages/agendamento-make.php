@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Domine&display=swap" rel="stylesheet">
    
 
-    <script>
+    <!--script>
         $(function() {
             $("#form-agendamento").submit(function(e) {
                 //prevenindo envio do form
@@ -53,10 +53,11 @@
 
             });
         });
-    </script>
+    </script-->
 </head>
 
 <body style="background-color: rgb(255, 243, 202);">
+<base attr="<?=INCLUDE_PATH?>" ></base>
 
     <div class="ui hidden divider"></div>
 
@@ -81,8 +82,14 @@
 
                     <div class="field">
                         <label for="data">Hora:</label>
-                        <input type="time" required name="hora" id="hora">
+                        <input type="time" required name="horario" id="hora">
                     </div>
+                    <input type="hidden" name="procedimento" value="Maquiagem">
+                <?php if(isset($_SESSION['id_usuario']) && isset($_SESSION['logado']) && isset($_SESSION['auth'])):?>
+                    <input type="hidden" name="<?=md5("id_user")?>" value="<?=$_SESSION['id_usuario']?>">
+                    <input type="hidden" name="email" value="<?=$_SESSION['email']?>">
+                    <input type="hidden" name="<?=md5("auth")?>" value="<?=$_SESSION['auth']?>">
+                <?php endif?>
                     <button class="button">Salvar</button>
                 </form>
 
@@ -109,6 +116,7 @@
         </div>
 
     </div>
+    <script src="<?=INCLUDE_PATH?>assets/js/agendamento.js"></script>
 </body>
 
 </html>

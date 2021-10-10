@@ -58,6 +58,7 @@
 </head>
 
 <body style="background-color: rgb(255, 243, 202);">
+<base attr="<?=INCLUDE_PATH?>" ></base>
 
   <div class="ui hidden divider"></div>
 
@@ -116,22 +117,7 @@
     </div>
 
   </div>
-  <script>
-    $('body').on('submit', 'form', function(){
-      event.preventDefault();
-      var form = $(this);
-      $.ajax({
-        url:'http://localhost/EmilyTCC/tcc_sistema/Ajax/RequestAgendamento.php',
-			  method:'post',
-			  dataType: 'json',
-			  data:form.serialize()
-      }).done(function(data){
-        console.log(data);
-      })
-      return false;
-    })
-
-  </script>
+  <script src="<?=INCLUDE_PATH?>assets/js/agendamento.js"></script>
 </body>
 
 </html>
