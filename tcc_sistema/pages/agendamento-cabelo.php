@@ -1,5 +1,5 @@
 <?php
-    if(!isset($index)){
+    if(!isset($index) || !isset($_SESSION['logado'])){
         include('../config.php');
         header('Location: '.INCLUDE_PATH);
         die();

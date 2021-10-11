@@ -6,30 +6,30 @@
     if(isset($_SESSION['logado']))
         $_SESSION['logado'];
     
-    /*--------------------------------------------------------
-    |   Configurações - Informações principais
-    |---------------------------------------------------------
-    |   Definir nome do site:
-    |       1.Alterar valor da chave 'title'.
-    |
-    |   Definir descrição do site:
-    |       1.Alterar valor da chave 'descrição'.
-    |
-    |   Definir autor do site:
-    |       1.Alterar valor da chave 'autor'.
-    |
-    |   Definir palavras-chaves do site:
-    |       1.Alterar valor da chave 'keywords'.
-    |   
-    |   Definir icone do site:
-    |       1.Criar ou baixar imagem no formato '.ico' e
-    |         renomear arquivo para 'icone'.
-    |       2.Após isso,
-    |         salve em assets na pasta img.
-    |
-    |   Nota: as palavras chaves tem quer ser separadas
-    |         por vígula.
-    */
+/*--------------------------------------------------------
+|   Configurações - Informações principais
+|---------------------------------------------------------
+|   Definir nome do site:
+|       1.Alterar valor da chave 'title'.
+|
+|   Definir descrição do site:
+|       1.Alterar valor da chave 'descrição'.
+|
+|   Definir autor do site:
+|       1.Alterar valor da chave 'autor'.
+|
+|   Definir palavras-chaves do site:
+|       1.Alterar valor da chave 'keywords'.
+|   
+|   Definir icone do site:
+|       1.Criar ou baixar imagem no formato '.ico' e
+|         renomear arquivo para 'icone'.
+|       2.Após isso,
+|         salve em assets na pasta img.
+|
+|   Nota: as palavras chaves tem quer ser separadas
+|         por vígula.
+*/
     define(
         "SITE_INFO", [
             'title'     => 'Nome do site',
@@ -38,33 +38,33 @@
             'keywords'  => 'palavras,separadas,por,virgula'
         ]);
     
-    /*--------------------------------------------------------
-     |  Configurações do Banco de dados 
-     |--------------------------------------------------------
-     |   Definir hospedagem:
-     |      - Esta informação é dada pelo servidor do site.
-     |      - Caso use um servidor xampp ou lampp, utilize
-     |        'localhost'.
-     |      1.Altere o valor da chave 'host'.
-     |
-     |   Definir nome do banco de dados:
-     |      - Usar nome definido no MySQL.
-     |      1.Altere o valor da chave 'dbname'.
-     |
-     |   Definir username:
-     |      - Esta informação também é dada pelo servidor.
-     |      - Caso utilize um servidor local, colocar 'root'.
-     |      1.Altere o valor da chave 'user'.
-     |
-     |   Definir senha:
-     |      - Esta informação também é dada pelo servidor.
-     |      - Caso utilize um servidor local, deixar ''.
-     |      1.Altere o valor da chave 'pass'.
-     |
-     |  Nota: Arquivo 'error_log' é criado automáticamente
-     |        para indicar erros com base no horário e o
-     |        tipo do error.
-     */
+/*--------------------------------------------------------
+|  Configurações do Banco de dados 
+|--------------------------------------------------------
+|   Definir hospedagem:
+|      - Esta informação é dada pelo servidor do site.
+|      - Caso use um servidor xampp ou lampp, utilize
+|        'localhost'.
+|      1.Altere o valor da chave 'host'.
+|
+|   Definir nome do banco de dados:
+|      - Usar nome definido no MySQL.
+|      1.Altere o valor da chave 'dbname'.
+|
+|   Definir username:
+|      - Esta informação também é dada pelo servidor.
+|      - Caso utilize um servidor local, colocar 'root'.
+|      1.Altere o valor da chave 'user'.
+|
+|   Definir senha:
+|      - Esta informação também é dada pelo servidor.
+|      - Caso utilize um servidor local, deixar ''.
+|      1.Altere o valor da chave 'pass'.
+|
+|  Nota: Arquivo 'error_log' é criado automáticamente
+|        para indicar erros com base no horário e o
+|        tipo do error.
+*/
     define(
         "DB",[
             'host'   => 'localhost',
@@ -73,10 +73,10 @@
             'pass'   => ''
         ]);
 
-    /*--------------------------------------------------------
-     |  Configurações para o funcionamento do site 
-     |--------------------------------------------------------
-     */
+/*--------------------------------------------------------
+|  Configurações para o funcionamento do site 
+|--------------------------------------------------------
+*/
     $autoload = function($class){
         include('classes/'.$class.'.php');
     };
@@ -100,9 +100,13 @@
      * @return string
      */
     function nameDir(){
-        $arrDir = explode("/",$_SERVER['PHP_SELF']);
-        $arrDir = implode("/", array($arrDir[1],$arrDir[2]));
-        return "/".$arrDir."/";
+        $dr = explode("/",$_SERVER["DOCUMENT_ROOT"]);;
+        $arrDir = array_values(array_filter(explode("\\",__FILE__)));
+        $urlROOT = "";
+        for($i = count($dr); $i < count($arrDir) - 1 ; $i++){
+            $urlROOT.= "/".$arrDir[$i];
+        }
+        return $urlROOT."/";
     }
     
     /**
@@ -115,7 +119,8 @@
     $dir_root = (status_dev == 0) ?     
                 "http://".$_SERVER["HTTP_HOST"].nameDir() :
                 $_SERVER['HTTP_X_FORWARDED_PROTO']."://".$_SERVER["HTTP_HOST"]."/";
-
+    
+    
     /**
      * Atribui a constante INCLUDE_PATH o endereço principal
      * do site.
