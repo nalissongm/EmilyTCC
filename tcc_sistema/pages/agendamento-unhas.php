@@ -1,3 +1,10 @@
+<?php
+    if(!isset($index)){
+        include('../config.php');
+        header('Location: '.INCLUDE_PATH);
+        die();
+    }
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -87,5 +94,4 @@
     </div>
     <script src="<?=INCLUDE_PATH?>assets/js/agendamento.js"></script>
 </body>
-
 </html>

@@ -49,7 +49,7 @@ if(isset($_POST)){
                 }
                 
                 # Houve algum erro ao tentar realizar agendamento.
-                if($e->$e->getMessage() == "ErrorIndefinido"){
+                if($e->getMessage() == "ErrorIndefinido"){
                     $data[$e->getMessage()] = true;
                 }
 

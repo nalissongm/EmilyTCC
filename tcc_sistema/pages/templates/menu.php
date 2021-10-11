@@ -1,4 +1,11 @@
 <?php
+    if(!isset($index)){
+        include('../../config.php');
+        header('Location: '.INCLUDE_PATH);
+        die();
+    }
+?>
+<?php
     $remetenteEmail = "seuemail@gmail.com";
     $assuntoEmail = "Assunto automático que aparecerá no email do usuário quando clicar no link";
     $corpoEmail = "Mensagem automática que aparecerá no email do usuário quando clicar no link";

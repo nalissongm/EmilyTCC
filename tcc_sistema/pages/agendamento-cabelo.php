@@ -1,3 +1,10 @@
+<?php
+    if(!isset($index)){
+        include('../config.php');
+        header('Location: '.INCLUDE_PATH);
+        die();
+    }
+?>
 <!DOCTYPE html>
 <html>
 <head>

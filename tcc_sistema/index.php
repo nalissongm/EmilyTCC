@@ -3,6 +3,7 @@
      * Inclusão do arquivo de configurações
      */
     include_once("config.php");
+    $index = true;
 
     /**
      * #### Pegando o valor na url.
@@ -25,12 +26,14 @@
      * da @var url com final '.php' no diretório
      * raiz e no diretório 'pages/'. 
      */
-    if(file_exists($url.'.php') || file_exists('pages/'.$url.'.php') || $url == 'agendamento'){
+    if(file_exists($url.'.php') || file_exists('pages/'.$url.'.php') || ($url === 'agendamento' && isset($_SESSION['logado']))){
         /*-----------------------------------------------
         |   Inserindo a Home do site
         |------------------------------------------------
         */
         if($url == 'home' || $url === 'agendamento'){
+            //if($url === 'agendamento' && !isset($_SESSION['logado']))
+
             /**
              * Verificando se existe uma url para logout.
              */

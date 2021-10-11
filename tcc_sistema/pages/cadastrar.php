@@ -1,4 +1,11 @@
 <?php
+    if(!isset($index)){
+        include('../config.php');
+        header('Location: '.INCLUDE_PATH.'cadastrar');
+        die();
+    }
+?>
+<?php
     if(isset($_POST['cadastrar'])){
         if(md5($_POST['senha']) === md5($_POST['confsenha'])){
             try{

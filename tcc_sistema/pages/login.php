@@ -1,4 +1,11 @@
 <?php
+    if(!isset($index)){
+        include('../config.php');
+        header('Location: '.INCLUDE_PATH.'login');
+        die();
+    }
+?>
+<?php
     if(isset($_POST['entrar'])){
         try{
             $login = new ValidarUser;
