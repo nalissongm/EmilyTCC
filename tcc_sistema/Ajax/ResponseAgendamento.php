@@ -10,28 +10,20 @@ class ResponseAgendamento{
  | Informações para realizar agendamento
  |---------------------------------------------------
  */
-    private $data;          // Data do agendamento
-    private $hora;          // Horário do agendamento
-    private $procedimento;  // Procedimento a ser realizado
-    private $id;            // ID do usuário
-    private $email;         // Email do usuário
+    private $data;          // Data do agendamento.
+    private $hora;          // Horário do agendamento.
+    private $procedimento;  // Procedimento a ser realizado.
+    private $id;            // ID do usuário.
+    private $email;         // Email do usuário.
 /*----------------------------------------------------*/
 
-    /**
-     * Resposta da execução.
-     * @var [string]
-     */
-    private $response;
+    private $response;           // Retorno para o RequestAgendamento.
     
-    /**
-     * Objeto da Classe Agendamento.
-     * @var [objeto]
-     */
-    private static $agendamento;
+    private static $agendamento; // Objeto da Classe Agendamento.
 
     /**
-     * Método construtor para definir atributos
-     * da classe.
+     * Definindo data, hora, procedimento, id do usuário
+     * e email do usuário.
      * @param array $posts
      */
     public function __construct($posts = array())
@@ -44,96 +36,134 @@ class ResponseAgendamento{
     }
 
     /**
-     * Tratando dados e validando
-     * 
-     *  1. Verifica se formato de data está certo.
-     *  2. Verifica se horário contém apenas hora
-     *     e minuto. Se sim, acrescenta ':00'.
-     *  3. Verifica de o procedimento inserido
-     *     condiz com os lista de procedimento.
-     *  
-     * @return bolean    
+     * Verificando se dados estão corretos.
+     * @return boolean|null
      */
-    public function tratarDados(){
+    public function tratarDados() :?bool
+    { 
+        // Separando data por hífen: $formatData = [0 => "XXXX", 1 => "XX", 2 => "XX"]
         $formatData = explode('-',$this->data);
+        // Separando hora por dois-pontos(:): $formatHora = [0 => "XX", 1 => "XX", 2 => "XX"]
         $formatHora = explode(':',$this->hora);
+        // Lista de procedimentos aceitáveis.
+        $procedimento = ['Cabeleireiro','Maquiagem','Manicure'];
 
-        $procedimento = ['Cabeleireiro','Maquiagem','Manicure']; // Lista de procedimentos aceitáveis.
-
-        $check = false;  // Usado para checar se procedimento condiz com a lista
-
-        /**
-         * Verificando se variável formatData (array com data separada por "-")
-         * contém 3 itens.
-         * 
-         * Depois, checar se o primeiro item é um ano (com 4 caracteres) e os
-         * outros dois possuem 2 caracteres.
-         */
         if(count($formatData) != 3 && strlen($formatData[0]) != 4 && strlen($formatData[1]) != 2 && strlen($formatData[2]) != 2){
+            # Data não contém 3 ítens ou não está no formato Y-m-d.
             $this->response = "ErroFormatoData";
             return false;
         }
 
-        /**
-         * Verificando se horário contém três itens
-         * separado por ":".
-         * 
-         * Se não conter, adicionar ":00" no final
-         * da data.
-         */ 
-        if(count($formatHora) != 3){
-            $this->hora.= ":00";
+        if(count($formatHora) == 2 && strlen($formatHora[0]) == 2 && strlen($formatData[1]) == 2){
+            # Horário não contém segundos.
+
+            $this->hora.= ":00";    // Inserindo segundos.
+        }
+        else if(count($formatHora) < 2){
+            # Horário não está no formato correto.
+            $this->response = "ErroFormatoHora";
+            return false;
+        }
+        else if(count($formatHora) == 3 && strlen($formatHora[0]) == 2 && strlen($formatData[1]) == 2 && strlen($formatData[2]) == 2){
+            # Horário está no formato correto.
+        }else{
+            # Horário não está no formato correto.
+            $this->response = "ErroFormatoHora";
+            return false;
         }
 
-        /**
-         * Loop para conferir se procedimento inserido
-         * condiz com lista de procedimentos aceitáveis.
-         */
+        // Verificando procedimentos.
         for($i = 0; $i < 3; $i++){
             if($this->procedimento == $procedimento[$i]){
-                $check = true;
-                break;
+                # Procedimento está correto.
+                return true;
+            }else if($i == 2){
+                # Procedimento inserido não é válido.
+                $this->response = "ErroProcedimento";
+                return false;
             }
         }
-
-        if($check == false)
-            $this->response = "ErroProcedimento";
-
-        
-        return $check; // True ou False.
     }
 
-    public function valideUser(){
+    /**
+     * Verifica se ID e Email do POST é válido.
+     * @return boolean|null
+     */
+    public function valideUser() :?bool
+    {
         $conn = MySQL::conectar();
-        $stmt = $conn->prepare("SELECT id_usuario, email FROM `tb_usuarios` WHERE id_usuario = ? AND email = ?");
+        $stmt = $conn->prepare(
+            "SELECT id_usuario, email
+             FROM `tb_usuarios`
+             WHERE id_usuario = ? AND email = ?");
         $stmt->execute(array($this->id,$this->email));
+
         if($stmt->rowCount()){
+            # Email e id são válidos.
             return true;
         }else{
+            # Email e id não são válidos.
             $this->response = "usuarioNRegistrado";
             return false;
         }
     }
 
-    public function verificarAgendamento(){
+    /**
+     * Verifica se já existe um agendamento.
+     * @return void
+     */    
+    public function verificarAgendamento()
+    {
+        // Instanciando classe Agendamento.
         self::$agendamento = new Agendamento();
-        self::$agendamento->setAgendamento($this->data, $this->hora);
-        if(self::$agendamento->verificarAgendamento() == true){
+        // Definindo agendamento.
+        self::$agendamento->setAgendamento(
+            $this->data,
+            $this->hora
+        );
+        
+        if(self::$agendamento->verificarAgendamento() == true)      // Executando método para verificar agendamento
+        {
+            # Existe agendamento na data e hora definida.
+            # Erro: "errorAgendamento".
             throw new Exception("errorAgendamento");
-        }else{
-            //$agendamento->realizarAgendamento();
+        }
+        else
+        {
+            # Não existe agendamento na data e hora definida.
+            # Retornar e continuar o código.
             return;
         }
     }
 
+    /**
+     * Método para realizar o agendamento.
+     *
+     * Como data e hora já foram definidas, agora
+     * defini o precedimento e o id do usuário no
+     * método insertAgendamento.
+     *   - Se conseguir inserir dados do agendamento
+     *     no banco de dados, gera resposta de
+     *     sucesso.
+     *   - Caso contrário, gera erro ao ralizar
+     *     agendamento e retorna false.
+     * @return void
+     */
     public function realizarAgendamento()
     {
-        if(self::$agendamento->insertAgendamento($this->procedimento, $this->id)){
+        if(
+        self::$agendamento->insertAgendamento(      // Inserindo dados do agendamento no BD.
+            $this->procedimento,
+            $this->id))
+        {
+            // Agendamento efetuado com sucesso!
             $this->response = "sucesso";
             return;
         }
-        else{
-            throw new Exception("Erro ao realizar agendamento");
+        else
+        {
+            // Ocorreu algum erro. Verificar log na pasta Ajax.
+            throw new Exception("ErrorIndefinido");
             return false;
         }
     }

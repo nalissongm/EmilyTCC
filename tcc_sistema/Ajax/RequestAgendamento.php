@@ -1,100 +1,70 @@
 <?php
 // Verificando se existe requisições POST's.
 if(isset($_POST)){
+    $data = array();    // Retorno do request.
+
     /**
-     * @var data resultado em json do agendendamento.
-     */
-    $data = array();
-    /**
-     * @var auth verifica se existe autenticação para consulta.
+     * @var bool $auth verifica se existe autenticação para consulta.
      * @retun bool
      */
     $auth = (isset($_POST[md5("id_user")]) && isset($_POST[md5("auth")]) && isset($_POST['email'])) ?
             true : false;
 
-    /**
-     * Usuário autenticado.
-     */
     if($auth){
-        // $_POST -> data do agendamento (Y-m-d)
-        // $_POST -> horario do agendamento (H:i:s)
-        // $_POST -> procedimento ('Cabeleireiro','Maquiagem','Manicure')
-        // $_POST -> id do usuário (int)
+        # Usuário possui autenticação.
         include_once('ResponseAgendamento.php');
-        /**
-         * Executando os requests
-         */
         try{
-            $request = new ResponseAgendamento($_POST); // Intanciando e registrando posts
+            $request = new ResponseAgendamento($_POST); // Intanciando e registrando posts.
 
-            /**
-             * Verificando e tratando os dados
-             * 
-             * Retorna true OU false. Se true, procede a
-             * consulta. Caso contrário, retorna erro.
-             */
-            if(!$request->tratarDados()){
+            if(!$request->tratarDados())                // Verificando se dados estão corretos.
+            {
+                # Dados incorretos.
                 $data[$request->getResponse()] = true;
                 die(json_encode($data));
             }
 
-            /**
-             * Verifica se o email e id batem com o banco de
-             * dados.
-             */
-            if(!$request->valideUser()){
+            if(!$request->valideUser())                 // Verificando se POST com id e email são válidos.
+            {
+                # Email e ID não são válidos.
                 $data[$request->getResponse()] = true;
                 die(json_encode($data));
             }
 
             try{
-                /*
-                 * Verificando se existe agendamento.
-                 * 
-                 * Se existir, mata o restante do código e
-                 * retorna um Exception.
-                 * 
-                 * Caso contrário, procede a execução do código.
-                 */
-                $request->verificarAgendamento();
-                
-                /*
-                 * Realizando agendamento.
-                 * 
-                 * Se falhar, mata o restante do código e
-                 * retorna um Exception.
-                 * 
-                 * Caso contrario, retorna sucesso.
-                 */
-                $request->realizarAgendamento();
-                $data[$request->getResponse()] = true;
+                $request->verificarAgendamento();       // Verificando se já existe agendamento.
+                $request->realizarAgendamento();        // Se não existe, realizando agendamento.
+                $data[$request->getResponse()] = true;  // Se agendado, retorne resposta.
                 die(json_encode($data));
             }
             catch(Exception $e){
-                // Erro do método verificar agendamento.
-                if($e->getMessage() == "errorAgendamento"){
+                # Erros:
+
+                # Agendamento já existe.
+                if($e->getMessage() == "errorAgendamento")
+                {
                     $data[$e->getMessage()] = [
                         "data" => date('d/m/Y', strtotime($_POST['data'])),
                         "hora" => $_POST['horario']
                     ];
                 }
                 
+                # Houve algum erro ao tentar realizar agendamento.
+                if($e->$e->getMessage() == "ErrorIndefinido"){
+                    $data[$e->getMessage()] = true;
+                }
+
                 die(json_encode($data));
             }
             
         }
-        /**
-         * Caso ocorra algum erro na execução do código.
-         */
         catch(Exception $e)
         {
+            # Erro na execução do código.
             $data['erroExec']= true;
         }
     }else{
+        # Usuário não autenticado.
         $data['notAuth'] = true;
         die(json_encode($data));
     }
 }
-
-// 2. Authetication
-// 3. ResponseAgendamento

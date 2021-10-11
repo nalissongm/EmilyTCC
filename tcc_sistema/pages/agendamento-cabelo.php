@@ -9,52 +9,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Domine&display=swap" rel="stylesheet">
-
-
-
-  <!--script>
-    $(function() {
-      $("#form-agendamento").submit(function(e) {
-        //prevenindo envio do form
-        e.preventDefault();
-
-        //pegando os valores do formulário
-        data = $("#data").val();
-        hora = $("#hora").val();
-        //alert("ok");
-
-        $.ajax({
-          type: "POST",
-          url: "verifica-data.php",
-          data: {
-            data: data,
-            hora: hora
-          },
-          success: function(response) {
-            //ver a resposta
-            //se for true, permitir o cadastro
-            //se for false, a data/hora não está disponível
-            //então alertar o usuário
-            if (response.includes("false")) {
-              //mostrando o modal e bloqueando a execução
-
-              //colocando a data dentro do modal
-              $("#modal-data-hora").text(data + " - " + hora);
-
-
-              $("#modal-aviso-data").modal("show");
-
-            } else {
-              //se pode cadastrar, ir para a página de cadastro
-              window.location.href = "./salva-agendamento.php?data=" + data + "&hora=" + hora;
-            }
-
-          }
-        });
-
-      });
-    });
-  </script-->
+  <!-- 
+        INPUTS NECESSÁRIOS PARA A EXECUÇÃO DO AJAX:
+            => <input type="hidden" name="procedimento" value="Cabeleireiro">
+            => <input type="hidden" name="<?=md5("id_user")?>" value="<?=$_SESSION['id_usuario']?>">
+            => <input type="hidden" name="email" value="<?=$_SESSION['email']?>">
+            => <input type="hidden" name="<?=md5("auth")?>" value="<?=$_SESSION['auth']?>">
+        
+        ATRIBUTO NAMES PARA INPUT DATA E HORA:
+            => name="data"
+            => name="horario"
+        
+        NOTA: Não alterar esses valores.
+        NOTA: Arquivo com configurações do ajax em assets\js\agendamento.js
+     -->
 </head>
 
 <body style="background-color: rgb(255, 243, 202);">
