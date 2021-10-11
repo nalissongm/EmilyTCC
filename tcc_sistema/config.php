@@ -68,7 +68,7 @@
     define(
         "DB",[
             'host'   => 'localhost',
-            'dbname' => 'db_sistema.salao',
+            'dbname' => 'db_sissalao',
             'user'   => 'root',
             'pass'   => ''
         ]);
