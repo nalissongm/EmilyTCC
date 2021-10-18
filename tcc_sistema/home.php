@@ -47,15 +47,20 @@
     <link href="<?=INCLUDE_PATH?>assets/css/bootstrap.min.css" rel="stylesheet">
     <!--link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous"-->
   
-    <!-------------------- css -------------------->
     <link href="<?=INCLUDE_PATH?>assets/css/carousel.css" rel="stylesheet">
     <link rel="stylesheet" href="<?=INCLUDE_PATH?>assets/css/estilo2.css">
+    <link rel="stylesheet" href="<?=INCLUDE_PATH?>assets/css/style.css">
 
     <!-------------------- Fontawesome - js -------------------->
     <script src="https://kit.fontawesome.com/8a3908ea58.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <main>
+<?php
+    if(isset($_SESSION['logado'])){
+        include('pages/templates/menu.php');
+    }
+?>
     <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -120,46 +125,46 @@
     | Então, mostre isso:
     |
     */
-    if(!isset($_SESSION['logado'])): 
+    if(!isset($_SESSION['logado'])):
 ?>
 <div id="topo">
-    <h3 style="font-family: 'Domine', serif;"> ------------------------- Sobre Nós -----------------------------</h3>
+    <span style="font-family: 'Domine', serif;">Sobre Nós</span>
 </div>
-
-<div id="coluna1">
-
-    <p> Criado em 2016 na cidade de Jaú, interior de São Paulo, o
-        salão de beleza Natural Beauty é especializado nas áreas de cabeleireiro,
-        manicure, pedicure e maquiagem. Sempre com
-    <br> o objetivo de entregar o melhor para seus clientes,
-        prezamos pelo conforto e profissionalismo em cada procedimento executado.
-        Todos os materiais utilizados são esterelizados,
-    <br> a fim de dar uma maior segurança à nossos clientes
-        durante essa época de pandemia. 
-    </p>
-    <br>
-    <div id="img2">
-        <img src="<?=INCLUDE_PATH?>assets/img/foto1.jpg" alt="salão">
-    </div><!-- img2 -->
-</div><!-- coluna1 -->
-
-<div id="coluna2">
-    <div id="img1">
-        <img src="<?=INCLUDE_PATH?>assets/img/foto2.jpg" alt="salão">
-    </div><!-- img1 -->
-    <br> <br>
-    <p>Alem de apresentar todo o tipo de recurso desejado, o salão também oferece uma plataforma
-        digital, a qual oferece amplas possibilidades de interação: o agendamento é feito diretamente no site,
-        tutoriais sempre são publicados para ajudar quem gostaria de aprender algo novo, e os produtos são vendidos
-        diariamente, tedo como local de retirada, o próprio salão. Se interessou por nossos serviços?
-    </p>
-</div><!-- coluna2 -->
+<article>
+    <div id="coluna1">
+        <p> Criado em 2016 na cidade de Jaú, interior de São Paulo, o
+            salão de beleza Natural Beauty é especializado nas áreas de cabeleireiro,
+            manicure, pedicure e maquiagem. Sempre com
+        <br> o objetivo de entregar o melhor para seus clientes,
+            prezamos pelo conforto e profissionalismo em cada procedimento executado.
+            Todos os materiais utilizados são esterelizados,
+        <br> a fim de dar uma maior segurança à nossos clientes
+            durante essa época de pandemia. 
+        </p>
+        <br>
+        <div id="img2">
+            <img src="<?=INCLUDE_PATH?>assets/img/foto1.jpg" alt="salão">
+        </div><!-- img2 -->
+    </div><!-- coluna1 -->
+    <div id="coluna2">
+        <div id="img1">
+            <img src="<?=INCLUDE_PATH?>assets/img/foto2.jpg" alt="salão">
+        </div><!-- img1 -->
+        <br> <br>
+        <p>Alem de apresentar todo o tipo de recurso desejado, o salão também oferece uma plataforma
+            digital, a qual oferece amplas possibilidades de interação: o agendamento é feito diretamente no site,
+            tutoriais sempre são publicados para ajudar quem gostaria de aprender algo novo, e os produtos são vendidos
+            diariamente, tedo como local de retirada, o próprio salão. Se interessou por nossos serviços?
+        </p>
+    </div><!-- coluna2 -->
+    <div class="clear-float"></div>
+</article>
     <div id="botao">
         <a href="<?=INCLUDE_PATH?>login"> <input type="submit" value="Venha Conhecer!"></a> 
     </div><!-- botao -->
     <div></div>
     <div id="topo2">
-        <h3>------------------------------------------------------------------</h3>
+        <span></span>
     </div><!-- topo2 -->
 <?php 
     /*------------------------------------------
@@ -177,6 +182,7 @@
         if($url == 'agendamento'){
             echo "<tag tag='$url' ></tag>";
         }
+        
 ?>  
     <h6 id="titulo" style="font-family: 'Domine', serif;">Qual procedimento deseja realizar hoje?</h6>
 

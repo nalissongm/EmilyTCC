@@ -43,16 +43,7 @@
                  */
                 Usuario::logout();
             }
-            /**
-             * Verificando se @var $_SESSION['logado']
-             * existe.
-             * @return true OR @return false
-             *  - Se falso, não inserir menu.
-             *  - Se verdadeiro, inserir menu.
-             */
-            if(isset($_SESSION['logado'])){
-                include('pages/templates/menu.php');
-            }
+            
             // Incluindo a home e rodapé
             include('home.php');
             include('pages/templates/rodape.php');

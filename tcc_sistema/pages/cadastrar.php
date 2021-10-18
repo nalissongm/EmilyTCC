@@ -29,11 +29,12 @@
     <meta charset="utf-8" />
     <title>Cadastrar</title>
     <link rel="stylesheet" href="<?=INCLUDE_PATH?>assets/css/login.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 </head>
 
 <body>
 
-    <div id="img" style="background-image: url(<?=INCLUDE_PATH?>assets/img/foto3.jpg)"></div>
+<div id="img" class="container" style="background-image: url(<?=INCLUDE_PATH?>assets/img/foto3.jpg)">
     <div id="corpo-form">
         <Center>
         <?php if(@$modalError == "CadastroError: email já existe."): ?>
@@ -56,6 +57,7 @@
             </form>
         </Center>
     </div>
+</div>
     <script src="<?=INCLUDE_PATH?>assets/js/jquery-3.6.0.min.js"></script>
     <script src="<?=INCLUDE_PATH?>assets/js/jquery.mask.js"></script>
     <script src="<?=INCLUDE_PATH?>assets/js/cadastro-scripts.js"></script>

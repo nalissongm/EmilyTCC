@@ -16,6 +16,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Domine&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    
     <!-- 
         INPUTS NECESSÁRIOS PARA A EXECUÇÃO DO AJAX:
             => <input type="hidden" name="procedimento" value="Maquiagem">
@@ -34,7 +36,7 @@
 
 <body style="background-color: rgb(255, 243, 202);">
 <base attr="<?=INCLUDE_PATH?>" ></base>
-
+<main>
     <div class="ui hidden divider"></div>
 
     <div class="ui dividing centered header" style="font-size: 50px; margin-top: 200px; font-family: 'Domine', serif;">Agendamento Maquiagem</div>
@@ -77,7 +79,7 @@
 
 
     </div>
-
+</main>
     <div class="ui modal" id="modal-aviso-data">
         <i class="close icon"></i>
         <div class="content">
