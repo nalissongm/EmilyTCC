@@ -42,8 +42,8 @@
                 <p>Já existe uma conta com esse e-mail. Insira um <br>e-mail diferente ou faça login!</p>
             </div>
         <?php endif ?>
-            <h1>Cadastrar</h1>
-            <form method="POST">
+        <form method="POST">
+                <h1>Cadastrar</h1>
 
                 <input name="nome" class="nome" type="text" placeholder="Nome Completo" autocomplete="none" maxlength="50" required>
                 <input name="cpf" class="cpf" type="text" placeholder="CPF" autocomplete="none" maxlength="14" required>

@@ -32,25 +32,30 @@
 <div id="img" class="container" style="background-image: url(<?=INCLUDE_PATH?>assets/img/foto3.jpg)">
     <div id="corpo-form">
         <center>
-            <h1>Entrar</h1>
-                <form method="POST">
+            <form method="POST">
+                    <h1>Entrar</h1>
                     
                     <input type="email" placeholder=" Usuário" name="email" required>
-                    <input type="password" placeholder="Senha" name="senha" required>
+                    <div class="inppass">
+                        <input id="inputpass" type="password" placeholder="Senha" name="senha" required>
+                        <i id="eye-pass" class="fas fa-eye-slash" ></i>
+                    </div>
                     <br>
                     <input type="submit" value="Entrar" name="entrar">
                     <br>
                     <p>Ainda não é cadastrado?</p>
                     <a href="<?=INCLUDE_PATH?>cadastrar"><strong><br>
                     Cadastre-se</a>
-                <?php if(isset($errorLogin) && $errorLogin == "LoginError: email inválido."):?>
-                    <p class="errorMessage">O e-mail que você inseriu não pertence a uma conta. Por favor, verifique o seu e-mail e tente novamente.</p>
-                <?php elseif(isset($errorLogin) && $errorLogin == "LoginError: senha inválida."):?>
-                    <p class="errorMessage">Senha está incorreta.<br> Verifique sua senha e tente novamente.</p>
-                <?php endif?>
                 </form>
-        </center>
-    </div>
-    </body>
+            </center>
+            <?php if(isset($errorLogin) && $errorLogin == "LoginError: email inválido."):?>
+                <div><p class="errorMessage">O e-mail que você inseriu não pertence a uma conta. Por favor, verifique o seu e-mail e tente novamente.</p></div>
+            <?php elseif(isset($errorLogin) && $errorLogin == "LoginError: senha inválida."):?>
+                <div><p class="errorMessage">Senha está incorreta.<br> Verifique sua senha e tente novamente.</p></div>
+            <?php endif?>
+        </div>
+    <script src="<?=INCLUDE_PATH?>assets/js/jquery-3.6.0.min.js"></script>
+    <script src="<?=INCLUDE_PATH?>assets/js/scripts.js"></script>
+</body>
 </div>
 </html>
