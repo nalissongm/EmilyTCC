@@ -22,8 +22,7 @@
                 try{
                     $stmt->execute($insert);
                     unset($_POST);
-                    header('Location: '.INCLUDE_PATH."login");
-                    die();
+                    
                 }catch(Exception $e){
                     return false;
                 }

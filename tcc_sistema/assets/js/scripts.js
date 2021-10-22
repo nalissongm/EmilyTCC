@@ -44,4 +44,40 @@ $(window).on('load',function(){
         eyePass()
         document.getElementById("inputpass").click();
     });
+
+    if($('.box-error').length){
+        let inpl = $('form input');
+        let boxError = $('.box-error');
+        boxError.fadeIn('fast');
+        inpl.click(() => {
+            boxError.fadeOut('fast');
+        })
+
+        if($('.errorS').length){
+            let pass = $("#inputpass");
+            pass.css({
+                borderBottom:"2px solid rgb(219, 49, 37)"
+            })
+            pass.addClass('err');
+            pass.click(() => {
+                pass.css({
+                    borderBottom:""
+                })
+                pass.removeClass('err');
+            })
+        }else if($('.errorE').length){
+            let fmInp = $("#inputpass, #inputemail");
+            fmInp.css({
+                borderBottom:"2px solid rgb(219, 49, 37)"
+            })
+            fmInp.addClass('err');
+            fmInp.click(() => {
+                fmInp.css({
+                    borderBottom:""
+                })
+                fmInp.removeClass('err');
+            })
+        }
+    }
+    
 })

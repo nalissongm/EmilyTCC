@@ -6,7 +6,9 @@
     }
 ?>
 <?php
+    $_SESSION['emailval'] = '';
     if(isset($_POST['entrar'])){
+        $email = $_POST['email'];
         try{
             $login = new ValidarUser;
             $login->setEmail($_POST['email']);
@@ -17,7 +19,10 @@
         {
             $errorLogin = $e->getMessage();
         }
+        if($errorLogin === "LoginError: senha inválida.")
+            $_SESSION['emailval'] = $email;
     }
+
 ?>
 <html lang="pt-br">
 <head>
@@ -34,8 +39,27 @@
         <center>
             <form method="POST">
                     <h1>Entrar</h1>
+                    <?php if(isset($errorLogin) && $errorLogin == "LoginError: email inválido."):?>
+                        <div class="box-error errorE">
+                            <div class="content-icon">
+                                <i class='fas fa-exclamation-triangle'></i>
+                            </div>
+                            <div class="content-text">
+                                <p class="errorMessage">O e-mail que você inseriu não pertence a uma conta.</p>
+                            </div>
+                        </div>
+                    <?php elseif(isset($errorLogin) && $errorLogin == "LoginError: senha inválida."):?>
+                        <div class="box-error errorS">
+                            <div class="content-icon">
+                                <i class='fas fa-exclamation-triangle'></i>
+                            </div>
+                            <div class="content-text">
+                                <p class="errorMessage">Senha está incorreta. Verifique sua senha e tente novamente.</p>
+                            </div>
+                        </div>
+                    <?php endif?>
                     
-                    <input type="email" placeholder=" Usuário" name="email" required>
+                    <input id="inputemail" type="email" placeholder=" Usuário" name="email" value="<?=$_SESSION['emailval'] ?>" required>
                     <div class="inppass">
                         <input id="inputpass" type="password" placeholder="Senha" name="senha" required>
                         <i id="eye-pass" class="fas fa-eye-slash" ></i>
@@ -48,11 +72,6 @@
                     Cadastre-se</a>
                 </form>
             </center>
-            <?php if(isset($errorLogin) && $errorLogin == "LoginError: email inválido."):?>
-                <div><p class="errorMessage">O e-mail que você inseriu não pertence a uma conta. Por favor, verifique o seu e-mail e tente novamente.</p></div>
-            <?php elseif(isset($errorLogin) && $errorLogin == "LoginError: senha inválida."):?>
-                <div><p class="errorMessage">Senha está incorreta.<br> Verifique sua senha e tente novamente.</p></div>
-            <?php endif?>
         </div>
     <script src="<?=INCLUDE_PATH?>assets/js/jquery-3.6.0.min.js"></script>
     <script src="<?=INCLUDE_PATH?>assets/js/scripts.js"></script>
