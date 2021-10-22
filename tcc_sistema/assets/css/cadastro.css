@@ -360,6 +360,16 @@ input[type=submit]:hover {
     font-size: 80px;
     color: white;
     border-radius: 5px 5px 0 0;
+    position: relative;
+}
+
+.div-icon #closeBoxS{
+    font-size: 30px;
+    color: rgba(41, 40, 40, 0.377);
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
 }
 
 .div-main h2{
@@ -435,11 +445,24 @@ input[type=submit]:hover {
     .box-error{
         height: 80px;
     }
+
+    .sucessCad .content-sucess{
+        width: 80%;
+    }
+
+    .sucessCad .content-sucess .div-main h2{
+        width: 80%;
+        text-align: center;
+    }
+
 }
 
 @media screen and (max-width: 380px){
     #corpo-form{
         width: 100% !important;
+    }
+    .sucessCad .content-sucess .div-main span{
+        width: 80%;
     }
 }
 @media screen and (max-width: 228px){

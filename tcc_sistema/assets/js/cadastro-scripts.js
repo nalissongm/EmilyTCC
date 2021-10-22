@@ -403,6 +403,10 @@ $(window).on('load',function(){
       event.stopPropagation();
       //you can also use `return false;` which is the same as `event.preventDefault()` and `event.stopPropagation()` all in one (in a jQuery event handler)
     });
+    $('#closeBoxS').on('click', () => {
+      over_s.hide();
+      box_s.hide(500);
+    })
   }
   $('body').on('submit', 'form', function(){
     return cadastrarUser();

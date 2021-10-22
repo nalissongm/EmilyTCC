@@ -12,7 +12,7 @@
         2 => '',
         3 => ''
     ];
-    $cadStatus = false;
+    $cadStatus = true;
     if(isset($_POST['cadastrar'])){
         $nome = $_POST['nome'];
         $cpf = $_POST['cpf'];
@@ -61,6 +61,7 @@
     <div class="sucessCad">
         <div class="content-sucess">
             <div class="div-icon">
+                <i id="closeBoxS" class="far fa-times-circle"></i>
                 <i class="fas fa-check"></i>
             </div>
             <div id='scdm' class="div-main">
