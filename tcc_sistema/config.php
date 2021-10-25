@@ -74,10 +74,47 @@
         ]);
 
 /*--------------------------------------------------------
+|  Configurações para desparo de e-mail. 
+|--------------------------------------------------------
+|  Cofigurações do smtp:
+|   SMTP['host'] [hospedagem do disparo de email]
+|   SMTP['username'] [e-mail do destinatário]
+|   SMTP['senha'] [senha do e-mail]
+|   SMTP['secure'] [segurança - (tls OR ssl)]
+|   SMTP['port'] [porta do envio]
+|   SMTP['charset'] [formato de codificação]
+|
+|  Configurações do remetente:
+|   REMETENTE[email] [email do remetente]
+|   REMETENTE[nome] [nome do remetente]
+*/
+    define(
+        "SMTP", [
+            'host'     => 'smtp.gmail.com',   // Utilizando o gmail: smtp.gmail.com.
+            'username' => 'nalissongm.pro@gmail.com',
+            'pass'     => 'GO@T2xMesz',
+            'secure'   => 'ssl',   // Padrões: ssl, tls.
+            'port'     => '465',   // Utilizada pelo Gmail: SSL -> 465, TLS -> 587.
+            'charset'  => 'UTF-8'  // Padrão: UTF-8. 
+        ]
+    );
+
+    define(
+        "REMETENTE", [
+            'email' => 'nalissongm.pro@gmail.com',
+            'nome'  => 'Nalisson Gomes'
+        ]
+    );
+
+
+/*--------------------------------------------------------
 |  Configurações para o funcionamento do site 
 |--------------------------------------------------------
 */
     $autoload = function($class){
+        if($class == 'Email'){
+			require_once('classes/PHPMailer/PHPMailerAutoload.php');
+		}
         include('classes/'.$class.'.php');
     };
     spl_autoload_register($autoload);

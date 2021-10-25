@@ -1,6 +1,6 @@
 $(window).on('load',function(){
     var include_path = $('base').attr('attr');
-    $('body').on('submit', 'form', function(){
+    $('body').on('submit', 'form', function(event){
         event.preventDefault();
         var form = $(this);
         $.ajax({

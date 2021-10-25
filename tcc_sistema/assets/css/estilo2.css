@@ -334,14 +334,14 @@ textarea.campoForm:focus{
     border-color: #F8703E !important;
 }
 
-input.campoForm:-webkit-autofill,
-textarea.campoForm:-webkit-autofill,
-input.campoForm:-webkit-autofill:hover,
-textarea.campoForm:-webkit-autofill:hover,
-input.campoForm:-webkit-autofill:focus,
-textarea.campoForm:-webkit-autofill:focus,
-input.campoForm:-webkit-autofill:active,
-textarea.campoForm:-webkit-autofill:active{
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+input:-webkit-autofill:hover,
+textarea:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+textarea:-webkit-autofill:active{
     transition: background-color 5000s ease-in-out 0s;
 }
 
@@ -379,6 +379,28 @@ div.form-content form textarea::-moz-placeholder {  /* Firefox 19+ */
 div.form-content form input:-ms-input-placeholder,
 div.form-content form textarea:-ms-input-placeholder{  
     color: #b8b2b2;  
+}
+
+#contato-form div.sucess-submit{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 100%;
+    min-height: 400px;
+}
+
+#contato-form div.sucess-submit i{
+    font-size: 100px;
+    margin-bottom: 50px;
+    color: #F8703E;
+}
+
+#contato-form div.sucess-submit h2{
+    font-size: 24px;
+    margin-bottom: 50px;
 }
 
 
@@ -465,6 +487,12 @@ div.form-content form textarea:-ms-input-placeholder{
         flex-direction: column;
         justify-content: center;
     }   
+}
+
+@media screen and (max-width: 440px){
+    #contato-form div.sucess-submit h2{
+        font-size: 16px;
+    }
 }
 
 @media screen and (max-width: 380px) {

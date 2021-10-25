@@ -26,6 +26,7 @@
 </head>
 
 <body>
+    <path include="<?=INCLUDE_PATH?>"/></path>
     <?php include('pages/templates/menu.php');?>
         <section class="contato">
             <div class="box-contato">
@@ -58,13 +59,13 @@
                         </div>
 
                         <div>
-                            <input id="tel_input" class="campoForm" type="text" name="mensagem" placeholder="Digite sua mensagem..." required>
+                            <input id="tel_input" class="campoForm" type="text" name="telefone" placeholder="Digite sua mensagem..." required>
                             <label for="tel_int">Telefone</label>
                         </div>
                         
-                        <textarea class="campoForm" name="mensagem" placeholder="Digite sua mensagem..." required></textarea>
+                        <textarea class="campoForm" name="mensagem" placeholder="Digite sua mensagem..." style="white-space:pre-wrap;" required></textarea>
 
-                        <button name="enviar" style="text-transform: uppercase;">enviar</button>
+                        <button type="submit" name="enviar" style="text-transform: uppercase;"><span>enviar</span></button>
                     </form>
                 </div>
             </div>
@@ -76,6 +77,6 @@
     include('pages/templates/rodape.php');
     else:
         include('../config.php');
-        header('Location: '.INCLUDE_PATH.'cadastrar');
+        header('Location: '.INCLUDE_PATH);
         die();
     endif; ?>

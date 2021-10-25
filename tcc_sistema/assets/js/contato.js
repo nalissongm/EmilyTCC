@@ -1,6 +1,44 @@
 $(window).on('load',function() {
+    var include = $('path').attr('include');
     var elFormInputs = $('#contato-form form .campoForm');
     var elFormLabels = $('.form-content form label');
+
+    $('body').on('submit', '#contato-form form', function(e){
+        var form = $(this);
+        e.preventDefault();
+        $.ajax({
+            beforeSend: function(){
+                let bttnContact = $('#contato-form form button');
+                let loadingButton = "<img style='width:30%;' src='"+
+                include+"assets/img/loading.gif' alt='loading'>";
+
+                bttnContact.children().remove();
+                bttnContact.append(loadingButton);
+                
+            },
+            url: include + 'Ajax/FormContact.php',
+            method:'post',
+            dataType:'json',
+            data:form.serialize()
+        }).done(function(data){
+            if(data.sucesso){
+                let formContact = $('#contato-form');
+                let boxSucessSubmit = "<div class='sucess-submit'>"+
+                                        "<i class='far fa-check-circle'></i>" +
+                                        "<h2>Mensagem enviada com sucesso!</h2>" +
+                                      "</div>";
+                formContact.children().remove();
+                formContact.append(boxSucessSubmit);
+            }else{
+                let bttnContact = $('#contato-form form button');
+                let loadingButton = "<span>enviar</span>";
+                
+                bttnContact.children().remove();
+                bttnContact.append(loadingButton);
+                alert('Ops! Ocorreu algum erro. Tente mais tarde!');
+            }
+        })
+    }) 
 
     function sociallinkContact(link){
         switch (link) {

@@ -16,7 +16,7 @@ $(window).on('load',function(){
     }
 
     
-    if(navel.length) navel.on('click', openMenu);
+    if(navel.length) navel.children('.bttn-nav').on('click', openMenu);
     
     function eyePass(){
         if(eyepass.hasClass('fas fa-eye-slash')){
