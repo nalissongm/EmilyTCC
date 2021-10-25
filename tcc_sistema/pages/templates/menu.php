@@ -33,7 +33,13 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="<?=$linkE?>" target="_blank">Contato</a>
+                        <!--
+                            Envia direto para o email com assunto e mensagem determinada:
+                            <a class="nav-link" aria-current="page" href="<?=$linkE?>" target="_blank">Contato</a>
+                        ---------------------------------
+                            Abre o box de contato:
+                        -->
+                        <a class="nav-link" aria-current="page" href="<?=INCLUDE_PATH?>contato">Contato</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<?=INCLUDE_PATH?>?logout=true" tabindex="" aria-disabled="true">Sair</a>
@@ -68,7 +74,13 @@
                         </li>
 
                         <li >
-                            <a  aria-current="page" href="<?=$linkE?>" target="_blank">Contato</a>
+                            <!--
+                            Envia direto para o email com assunto e mensagem determinada:
+                            <a class="nav-link" aria-current="page" href="<?=$linkE?>" target="_blank">Contato</a>
+                            ---------------------------------
+                                Abre o box de contato:
+                            -->
+                            <a aria-current="page" href="<?=INCLUDE_PATH?>contato">Contato</a>
                         </li>
                         <li >
                             <a href="<?=INCLUDE_PATH?>?logout=true" tabindex="" aria-disabled="true">Sair</a>

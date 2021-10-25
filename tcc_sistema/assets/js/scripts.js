@@ -10,14 +10,13 @@ $(window).on('load',function(){
         $('html,body').animate({"scrollTop":divScroll-menuH},1000);
     }
     function openMenu(){
-        
         var listdrop = $('.box-navbar');
         document.getElementById("navbar-mobile").classList.toggle("open");
         listdrop.slideToggle('fast');
     }
 
     
-    if(navel.length) $('body').on('click',navel, openMenu);
+    if(navel.length) navel.on('click', openMenu);
     
     function eyePass(){
         if(eyepass.hasClass('fas fa-eye-slash')){

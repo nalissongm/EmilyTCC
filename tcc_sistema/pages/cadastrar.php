@@ -12,7 +12,7 @@
         2 => '',
         3 => ''
     ];
-    $cadStatus = true;
+    $cadStatus = false;
     if(isset($_POST['cadastrar'])){
         $nome = $_POST['nome'];
         $cpf = $_POST['cpf'];

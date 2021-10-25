@@ -26,7 +26,8 @@
      * da @var url com final '.php' no diretório
      * raiz e no diretório 'pages/'. 
      */
-    if(file_exists($url.'.php') || file_exists('pages/'.$url.'.php') || ($url === 'agendamento' && isset($_SESSION['logado']))){
+    if(file_exists($url.'.php') || file_exists('pages/'.$url.'.php') ||
+      ($url === 'agendamento' && isset($_SESSION['logado']))){
         /*-----------------------------------------------
         |   Inserindo a Home do site
         |------------------------------------------------
