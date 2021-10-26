@@ -31,12 +31,76 @@ $(window).on('load',function(){
              * 
              *  - data.sucesso: Agendamento concluído com sucesso.
              */
-            if(data.errorAgendamento){
+            if(data.sucesso){
+                
+                var boxModalSucess = "<div class='modalSucess'>"+
+                                        "<div class='boxSucessModal'>"+
+                                            "<div class='iconsModal'>"+
+                                                "<i class='fas fa-calendar-check'></i>"+
+                                            "</div>"+
+                                            "<div class='mensagemModal'>"+
+                                                "<span>Seu agendamento está marcado para "+data.sucesso.data+" às "+data.sucesso.hora+"!</span>"+
+                                                "<div class='inputsModal'>"+
+                                                    "<input type='button' onclick='redirectHome()' value='Okay'>"+
+                                                    "<input type='button' onclick="+"closeBox('sucess')"+" value='Novo horário'>"+
+                                                "</div>"+
+                                            "</div>"+
+                                        "</div>"+
+                                    "</div>";
+                $("body").prepend(boxModalSucess);
+            }
+            else if(data.errorAgendamento){
                 // Já existe Agendamento neste horário.
                 console.log(data.errorAgendamento);
                 $("#modal-data-hora").text(data.errorAgendamento.data + " - " + data.errorAgendamento.hora);
                 $("#modal-aviso-data").modal("show");
-          }
+            }
+            else if(data.ErroFormatoData || data.ErroFormatoHora || data.ErroProcedimento ||
+                    data.ErrorIndefinid || data.erroExec){
+                var boxModalError = "<div class='modalError' style='display:none;'>"+
+                                        "<div class='boxErrorModal' style='display:none;'>"+
+                                            "<div class='iconsModal'>"+
+                                                "<i class='far fa-times-circle' onclick='closeBox()'></i>"+
+                                                "<i class='fas fa-exclamation-triangle'></i>"+
+                                            "</div>"+
+                                            "<div class='mensagemModal' style='display:none;'>"+
+                                                "<span>Ops! Algo deu errado.<br>Tente mais novamente mais tarte.</span>"+
+                                            "</div>"+
+                                        "</div>"+
+                                    "</div>";
+                $("body").prepend(boxModalError);
+                $("div.modalError").show();
+                $("div.modalError div.boxErrorModal").show('fast', () => {
+                    $(this).css({
+                        "display":"flex"
+                    });
+                    $('div.mensagemModal').show();
+                });
+            }
+            else if(data.notAuth || data.usuarioNRegistrado){
+                var boxModalError = "<div class='modalError' style='display:none;'>"+
+                                        "<div class='boxErrorModal' style='display:none;'>"+
+                                            "<div class='iconsModal'>"+
+                                                "<i class='far fa-times-circle' onclick='closeBox()'></i>"+
+                                                "<i class='fas fa-id-card'></i>"+
+                                            "</div>"+
+                                            "<div class='mensagemModal' style='display:none;'>"+
+                                                "<span>Usuário não tem autorização para realizar agendamento.<br>Faça login e tente novamente.</span>"+
+                                                "<input type='button' onclick='redirectLogin()' value='Fazer login'>"+
+                                            "</div>"+
+                                        "</div>"+
+                                    "</div>";
+                $("body").prepend(boxModalError);
+                $("div.modalError").show();
+                $("div.modalError div.boxErrorModal").show('fast', () => {
+                    $(this).css({
+                        "display":"flex"
+                    });
+                    $('div.mensagemModal').show();
+                });
+            }
+
+
         })
         return false;
     })

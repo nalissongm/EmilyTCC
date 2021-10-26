@@ -36,6 +36,7 @@ $(window).on('load',function() {
                 bttnContact.children().remove();
                 bttnContact.append(loadingButton);
                 alert('Ops! Ocorreu algum erro. Tente mais tarde!');
+                // Aqui em baixo vai o código! 
             }
         })
     }) 

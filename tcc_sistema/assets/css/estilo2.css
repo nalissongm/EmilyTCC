@@ -489,7 +489,56 @@ div.form-content form textarea:-ms-input-placeholder{
     }   
 }
 
+@media screen and (max-width:648px){
+    #coluna1 {
+        display: flex;
+        flex-direction: column-reverse;
+        float: none;
+        width: 80%;
+      /*   background-color: red; */
+        margin: 5% auto;
+    }
+    
+    #coluna2 {
+        float: none;
+        width: 80%;
+        /* background-color: red; */
+        margin: 5% auto 20% auto;
+    }
+
+    #botao {
+        /*  background-color: rgb(26, 26, 26); */
+        height: 60px;
+        width: 100%;
+        position: initial;
+        transform: none;
+        margin: 80px auto 30px auto;
+        text-align: center;
+    }
+
+    #botao a input{
+        width: auto;
+        height: auto;
+        padding: 10px 10px;
+    }
+}
+
 @media screen and (max-width: 440px){
+    #topo span{
+        font-size: 30px;
+        min-width: 300px;
+    }
+
+    #topo span::before,
+    #topo span::after{
+        width: calc(100% / 3 - 40px);
+    }
+
+    #coluna1 p,
+    #coluna2 p{
+        font-size: 18px;
+    }
+
     #contato-form div.sucess-submit h2{
         font-size: 16px;
     }

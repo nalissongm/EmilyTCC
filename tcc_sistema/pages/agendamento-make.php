@@ -32,6 +32,8 @@
         NOTA: Não alterar esses valores.
         NOTA: Arquivo com configurações do ajax em assets\js\agendamento.js
      -->
+     <!-------------------- Fontawesome - js -------------------->
+    <script src="https://kit.fontawesome.com/8a3908ea58.js" crossorigin="anonymous"></script>
 </head>
 
 <body style="background-color: rgb(255, 243, 202);">
@@ -95,6 +97,30 @@
 
     </div>
     <script src="<?=INCLUDE_PATH?>assets/js/agendamento.js"></script>
+    <script>
+        function closeBox(box = ''){
+            switch (box) {
+                case 'sucess':
+                    $("div.modalSucess").hide();
+                    $("div.modalSucess").remove();
+                    $('#data').focus();
+                    break;
+            
+                default:
+                    $("div.modalError").hide();
+                    $("div.modalError").remove();
+                    break;
+            }
+        }
+
+        function redirectLogin(){
+            window.location.href = "<?=INCLUDE_PATH?>login";
+        }
+
+        function redirectHome(){
+            window.location.href = "<?=INCLUDE_PATH?>";
+        }
+    </script>
 </body>
 
 </html>

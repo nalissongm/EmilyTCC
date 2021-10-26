@@ -118,6 +118,7 @@
         include('classes/'.$class.'.php');
     };
     spl_autoload_register($autoload);
+    
     /**
      * @var status_dev
      * const status_dev recebe 1 ou 0.

@@ -33,7 +33,10 @@ if(isset($_POST)){
             try{
                 $request->verificarAgendamento();       // Verificando se já existe agendamento.
                 $request->realizarAgendamento();        // Se não existe, realizando agendamento.
-                $data[$request->getResponse()] = true;  // Se agendado, retorne resposta.
+                $data[$request->getResponse()] = [  // Se agendado, retorne resposta.
+                        "data" => date('d/m/Y', strtotime($_POST['data'])),
+                        "hora" => $_POST['horario']
+                ];
                 die(json_encode($data));
             }
             catch(Exception $e){
@@ -52,7 +55,6 @@ if(isset($_POST)){
                 if($e->getMessage() == "ErrorIndefinido"){
                     $data[$e->getMessage()] = true;
                 }
-
                 die(json_encode($data));
             }
             
