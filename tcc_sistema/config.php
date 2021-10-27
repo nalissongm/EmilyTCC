@@ -90,11 +90,11 @@
 */
     define(
         "SMTP", [
-            'host'     => 'smtp.gmail.com',   // Utilizando o gmail: smtp.gmail.com.
+            'host'     => 'smtp-relay.sendinblue.com',   // Utilizando o gmail: smtp.gmail.com.
             'username' => 'nalissongm.pro@gmail.com',
-            'pass'     => 'GO@T2xMesz',
-            'secure'   => 'ssl',   // Padrões: ssl, tls.
-            'port'     => '465',   // Utilizada pelo Gmail: SSL -> 465, TLS -> 587.
+            'pass'     => 'I1psAwONVayhHFWb',
+            'secure'   => 'tls',   // Padrões: ssl, tls.
+            'port'     => '587',   // Utilizada pelo Gmail: SSL -> 465, TLS -> 587.
             'charset'  => 'UTF-8'  // Padrão: UTF-8. 
         ]
     );
