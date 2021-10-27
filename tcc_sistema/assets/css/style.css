@@ -37,7 +37,7 @@ margin: 0;
   height: 40px;
   display: flex;
   flex-direction: column;
-  
+  cursor: pointer;
 }
 
 #navbar-mobile div.bttn-nav span,
@@ -101,10 +101,7 @@ div.box-navbar .nav-drop{
 
 div.box-navbar .nav-drop li{
   padding: 15px 0;
-}
-
-div.box-navbar .nav-drop li:hover{
-  background-color: rgb(187, 187, 168);
+  cursor: pointer;
 }
 
 div.box-navbar .nav-drop li:not(div.box-navbar .nav-drop li:last-child){

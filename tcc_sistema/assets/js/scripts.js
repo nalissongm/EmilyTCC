@@ -15,9 +15,31 @@ $(window).on('load',function(){
         listdrop.slideToggle('fast');
     }
 
-    
-    if(navel.length) navel.children('.bttn-nav').on('click', openMenu);
-    
+
+    if(navel.length) navel.children('.bttn-nav').on('click', () => {
+        openMenu();
+    });
+
+    $('ul.nav-drop li').hover(function(e){
+        $(this).css({
+            "background-color": "rgb(71, 71, 70)"
+        });
+        $(this).children().css({
+            "color": "rgb(255, 255, 255)"
+        });
+    },function(e){
+        $(this).css({
+            "background-color": ""
+        });
+        $(this).children().css({
+            "color": ""
+        });
+    })
+    $('ul.nav-drop li').click(function(e){
+        let linkA = $(this).children().attr('link');
+        window.location.href = linkA;
+    });
+
     function eyePass(){
         if(eyepass.hasClass('fas fa-eye-slash')){
             // Mostre a senha

@@ -61,26 +61,26 @@
                 <div class="box-navbar">
                     <ul class="nav-drop">
                         <li >
-                            <a  href="<?=INCLUDE_PATH?>" tabindex="-1" aria-disabled="true">Home</a>
+                            <a  link="<?=INCLUDE_PATH?>" tabindex="-1" aria-disabled="true">Home</a>
                         </li>
                         <li >
-                            <a  aria-current="page" href="<?=INCLUDE_PATH?>agendamento">Agendamento</a>
+                            <a  aria-current="page" link="<?=INCLUDE_PATH?>agendamento">Agendamento</a>
                         </li>
                         <li >
-                            <a  href="<?=INCLUDE_PATH?>tutoriais">Tutoriais</a>
+                            <a  link="<?=INCLUDE_PATH?>tutoriais">Tutoriais</a>
                         </li>
                         <li >
-                            <a  href="<?=INCLUDE_PATH?>loja" tabindex="-1" aria-disabled="true">Loja</a>
+                            <a  link="<?=INCLUDE_PATH?>loja" tabindex="-1" aria-disabled="true">Loja</a>
                         </li>
 
                         <li >
                             <!--
                             Envia direto para o email com assunto e mensagem determinada:
-                            <a class="nav-link" aria-current="page" href="<?=$linkE?>" target="_blank">Contato</a>
+                            <a class="nav-link" aria-current="page" link="<?=$linkE?>" target="_blank">Contato</a>
                             ---------------------------------
                                 Abre o box de contato:
                             -->
-                            <a aria-current="page" href="<?=INCLUDE_PATH?>contato">Contato</a>
+                            <a aria-current="page" link="<?=INCLUDE_PATH?>contato">Contato</a>
                         </li>
                         <li >
                             <a href="<?=INCLUDE_PATH?>?logout=true" tabindex="" aria-disabled="true">Sair</a>
