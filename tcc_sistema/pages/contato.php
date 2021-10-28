@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-    <title><?= SITE_INFO['title'] ?></title>
+    <title><?= SITE_INFO['title_contato'] ?></title>
     <meta name="description" content="<?= SITE_INFO['descricao'] ?>">
     <meta name="keywords" content="<?= SITE_INFO['keywords'] ?>">
     <meta name="author" content="<?= SITE_INFO['autor'] ?>">

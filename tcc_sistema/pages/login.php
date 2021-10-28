@@ -27,7 +27,14 @@
 <html lang="pt-br">
 <head>
     <meta charset="utf-8" />
-    <title>Login</title>
+
+    <title><?= SITE_INFO['title_login'] ?></title>
+    <meta name="description" content="<?= SITE_INFO['descricao'] ?>">
+    <meta name="keywords" content="<?= SITE_INFO['keywords'] ?>">
+    <meta name="author" content="<?= SITE_INFO['autor'] ?>">
+
+    <link rel="icon" href="<?= INCLUDE_PATH ?>assets/img/icone.ico" type="image/x-icon" />
+
     <link rel="stylesheet" href="<?=INCLUDE_PATH?>assets/css/login.css">
     <script src="https://kit.fontawesome.com/2639b446b8.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">

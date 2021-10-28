@@ -32,7 +32,14 @@
 */
     define(
         "SITE_INFO", [
-            'title'     => 'Nome do site',
+            'title_home'                  => 'Salão',
+            'title_login'                 => 'Faça Login',
+            'title_cadastro'              => 'Cadastre-se',
+            'title_agendamento-unhas'     => 'Manicure',
+            'title_agendamento-make'      => 'Maquiagem',
+            'title_agendamento-cabelo'    => 'Cabeleireiro',
+            'title_contato'               => 'Entre em contato',
+            'title_tutoriais'             => 'Tutoriais',
             'descricao' => 'Colocar uma descrição aqui!',
             'autor'     => 'Emily',
             'keywords'  => 'palavras,separadas,por,virgula'

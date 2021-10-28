@@ -8,7 +8,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title><?= SITE_INFO['title_agendamento-unhas'] ?></title>
+    <meta name="description" content="<?= SITE_INFO['descricao'] ?>">
+    <meta name="keywords" content="<?= SITE_INFO['keywords'] ?>">
+    <meta name="author" content="<?= SITE_INFO['autor'] ?>">
 
+    <link rel="icon" href="<?= INCLUDE_PATH ?>assets/img/icone.ico" type="image/x-icon" />
+    
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.min.css">
     <link rel="stylesheet" href="<?=INCLUDE_PATH?>assets/css/agendamento.css">

@@ -2,13 +2,16 @@
   margin: 0;
 }
 
+/* Resetando padrões */
+
+
 /* GLOBAL STYLES
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
 
 body {
-  padding-top: 3rem;
-  color: #5a5a5a;
+  padding-top: 3rem ;
+  color: #5a5a5a ;
   background-color: rgb(250, 238, 198);
 
 }
