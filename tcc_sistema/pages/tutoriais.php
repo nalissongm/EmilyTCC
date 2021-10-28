@@ -1,5 +1,7 @@
 <?php if(isset($_SESSION['logado']) && $index == true): ?>
 <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title><?= SITE_INFO['title_tutoriais'] ?></title>
 <meta name="description" content="<?= SITE_INFO['descricao'] ?>">
 <meta name="keywords" content="<?= SITE_INFO['keywords'] ?>">
@@ -27,10 +29,10 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
 <link rel="stylesheet" href="<?=INCLUDE_PATH?>assets/css/tutorial.css">
-<link rel="stylesheet" href="<?= INCLUDE_PATH ?>assets/css/estilo2.css">
-<link rel="stylesheet" href="<?= INCLUDE_PATH ?>assets/css/style.css">
 <link href="<?=INCLUDE_PATH?>assets/css/bootstrap.min.css" rel="stylesheet">
 <link href="<?= INCLUDE_PATH ?>assets/css/carousel.css" rel="stylesheet">
+<link rel="stylesheet" href="<?= INCLUDE_PATH ?>assets/css/style.css">
+<link rel="stylesheet" href="<?= INCLUDE_PATH ?>assets/css/estilo2.css">
 <body>
 <?=include("pages/templates/menu.php")?>
 <div id="topo" style="margin-top: 20px;">
@@ -77,7 +79,7 @@
     });
 </script>
 
-<center style="margin-bottom: 100px;">
+<center style="margin: 0px auto 100px auto;max-width: 1140px;">
     <div class="comentarios">
         <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-width="1000" data-numposts="5"></div>
     </div>
