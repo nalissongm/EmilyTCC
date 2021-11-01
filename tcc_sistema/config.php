@@ -97,9 +97,9 @@
 */
     define(
         "SMTP", [
-            'host'     => 'smtp-relay.sendinblue.com',   // Utilizando o gmail: smtp.gmail.com.
-            'username' => 'nalissongm.pro@gmail.com',
-            'pass'     => 'I1psAwONVayhHFWb',
+            'host'     => 'smtp.gmail.com',   // Utilizando o gmail: smtp.gmail.com.
+            'username' => '',  // Seu email do gmail (caso use gmail)
+            'pass'     => '',  // Sua senha do gmail (caso use gmail)
             'secure'   => 'tls',   // Padrões: ssl, tls.
             'port'     => '587',   // Utilizada pelo Gmail: SSL -> 465, TLS -> 587.
             'charset'  => 'UTF-8'  // Padrão: UTF-8. 
@@ -108,8 +108,8 @@
 
     define(
         "REMETENTE", [
-            'email' => 'nalissongm.pro@gmail.com',
-            'nome'  => 'Nalisson Gomes'
+            'email' => '',  // Email que receberá as mensagens
+            'nome'  => ''   // Nome de quem receberá
         ]
     );
 

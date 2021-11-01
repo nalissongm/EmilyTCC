@@ -51,7 +51,7 @@
 #topo span::after{
     content: '';
     display: inline-block;
-    width: calc(100% / 3 - 100px);
+    width: calc(50% - 165px);
     height: 1px;
     position: relative;
     vertical-align: middle;

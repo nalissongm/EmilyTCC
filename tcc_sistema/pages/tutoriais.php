@@ -34,7 +34,8 @@
 <link rel="stylesheet" href="<?= INCLUDE_PATH ?>assets/css/style.css">
 <link rel="stylesheet" href="<?= INCLUDE_PATH ?>assets/css/estilo2.css">
 <body>
-<?=include("pages/templates/menu.php")?>
+<?php include_once("pages/templates/menu.php")?>
+<?php include_once('pages/templates/carousel.php')?>
 <div id="topo" style="margin-top: 20px;">
     <span style="font-family: 'Domine', serif;">Tutoriais</span>
 </div>
