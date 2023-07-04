@@ -1,0 +1,339 @@
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+
+  * {
+margin: 0;
+}
+
+/* 
+| Menu Mobile
+*/
+.fixed-top{
+  z-index: 80 !important;
+}
+
+#navbar-mobile{
+  display: none;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 2%;
+  width: 100%;
+}
+
+#navbar-mobile div.bttn-nav{
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+#navbar-mobile div.bttn-nav span,
+#navbar-mobile div.bttn-nav span::before,
+#navbar-mobile div.bttn-nav span::after{
+  content: "";
+  display: block;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  width: auto;
+  height: 4px;
+  background: white;
+  transition: all .2s ease-in-out;
+}
+
+#navbar-mobile div.bttn-nav span::before{
+  top: -12px;
+}
+
+#navbar-mobile div.bttn-nav span::after{
+  top: 12px;
+}
+
+#navbar-mobile.open span{
+  background: none !important;
+}
+
+#navbar-mobile.open span::before{
+  transform: rotate(135deg) !important;
+  transition: 0.3s !important;
+  position: relative !important;
+  top: -2px !important;
+}
+
+#navbar-mobile.open span::after{
+  position: relative !important;
+  top: -6px !important;
+  transform: rotate(-135deg) !important;
+  transition: 0.3s !important;
+}
+
+div.box-navbar{
+  display: none;
+  position: absolute;
+  top: 56px;
+  left: 0;
+  background-color: whitesmoke;
+  width: 100%;
+}
+
+div.box-navbar .nav-drop{
+  display: flex;
+  flex-direction: column;
+  line-height: 39px;
+  font-size: 24px;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+div.box-navbar .nav-drop li{
+  padding: 15px 0;
+  cursor: pointer;
+}
+
+div.box-navbar .nav-drop li:not(div.box-navbar .nav-drop li:last-child){
+  border-bottom: 1px solid #5a5a5a;
+}
+
+div.box-navbar .nav-drop li a{
+  text-decoration: none;
+  font-weight: bold;
+}
+
+div.box-navbar
+
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+body {
+padding-top: 3rem;
+color: #5a5a5a;
+background-color: rgb(250, 238, 198);
+
+}
+
+#titulo {
+/*    background-color: red; */
+   text-align: center;
+   font-size: 80px;
+   margin-top: 5%;
+   margin-bottom: 5%;
+}
+
+li a {
+  margin-left: 20px;
+}
+
+.nav-item {
+  font-size: 22px;
+  margin-right: 30px;
+}
+ul.navbar-nav{
+  margin: 0 auto;
+}
+
+header{
+  width: 100%;
+  max-width: 1920px;
+}
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+margin-bottom: 4rem;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+bottom: 3rem;
+left: 9rem;
+z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel-item {
+height: 32rem;
+}
+.carousel-item > img {
+position: absolute;
+top: 0;
+left: 0;
+min-width: 100%;
+height: 32rem;
+}
+
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+margin-bottom: 1.5rem;
+text-align: center;
+}
+.marketing h2 {
+font-weight: 400;
+}
+/* rtl:begin:ignore */
+.marketing .col-lg-4 p {
+margin-right: .75rem;
+margin-left: .75rem;
+}
+/* rtl:end:ignore */
+
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+font-weight: 300;
+line-height: 1;
+/* rtl:remove */
+letter-spacing: -.05rem;
+}
+
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 40em) {
+/* Bump up size of carousel content */
+.carousel-caption p {
+  margin-bottom: 1.25rem;
+  font-size: 1.25rem;
+  line-height: 1.4;
+}
+
+.featurette-heading {
+  font-size: 50px;
+}
+}
+
+@media (min-width: 62em) {
+.featurette-heading {
+  margin-top: 7rem;
+}
+}
+
+@media screen and (max-width: 900px){
+  #navbar-desktop{
+    display: none;
+  }
+
+  #navbar-mobile{
+    display: flex;
+  }
+
+}
+
+@media screen and (max-width: 478px){
+  h6#titulo{
+    font-size: 36px;
+  }
+
+  .bloco1 p{
+    font-size: 20px;
+  }
+  .bloco1 ul li i{
+    font-size: 25px;
+  }
+
+  .bloco2 p{
+    font-size: 20px;
+  }
+}
+
+
+.button{
+background-color: #2b2828;
+color: orange;
+border: orange 1px solid;
+border-radius: 8px;
+margin-right: 20px;
+
+}
+
+
+
+.button:hover{
+ background-color: orange;
+ color: black;
+ transition: 0.5s;
+}
+
+.prosseguir {
+background-color: gray;
+color: black;
+border-radius: 8px;
+
+}
+
+
+/* ------------- rodape ----------------- */
+
+.rodape {
+background-color: rgb(32, 32, 32);
+height: 400px;
+width: 100%;
+margin-bottom: 0;
+font-size: 25px;
+position: absolute;
+align-items: center;
+
+}
+/* redes sociais */
+
+ul {
+margin-left :0px;
+}
+
+ul li {
+display: inline-block;
+
+}
+
+a {
+color: #5a5a5a;
+}
+
+a:hover {
+color: aliceblue;
+transition: 2s;
+}
+
+.bloco1 {
+margin-bottom: 0%;
+position: relative;
+align-items: center;
+width: 100%;
+}
+
+.bloco2 {
+ position: absolute;
+ margin-bottom: 0px;
+ background-color: rgb(51, 50, 50);
+ width: 100%;
+ height: 80px;
+ text-align: center;
+ color: rgb(129, 128, 128);
+}

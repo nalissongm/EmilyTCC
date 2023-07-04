@@ -1,0 +1,45 @@
+.container {
+    margin-top: 80px;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+}
+
+.owl-carousel {
+    top: 40px;
+}
+
+.owl-carousel .item-video {
+   height: 400px;
+}
+
+.owl-dots {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.owl-dot {
+    display: inline-block;
+}
+
+.owl-dot span {
+    width: 11px;
+    height: 11px;
+    background-color: gray;
+    border-radius: 50%;
+    display: block;
+    margin:5px 3px;
+}
+
+.owl-dot.active span {
+    background-color: black;
+}
+
+.comentarios {
+   /*  background-color: white; */
+
+    margin-top: 80px;
+
+}
